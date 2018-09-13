@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
     web:
         build: ./web
@@ -19,7 +19,9 @@ services:
             - ./web/public/static/scripts:/assets/scripts:ro
             - ./web/public/static/build:/assets/build
     db:
-        image: mysql:5.5
+        image: mariadb:5.5
+        ports:
+            - "3380:3306"
         environment:
             MYSQL_PASSWORD: docker
             MYSQL_ROOT_PASSWORD: docker
